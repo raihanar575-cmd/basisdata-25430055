@@ -1,0 +1,27 @@
+-- p01_lingkungan_25430055.sql
+
+SELECT VERSION(), CURRENT_USER();
+SELECT @@sql_mode;
+
+CREATE DATABASE IF NOT EXISTS kopma_055
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE USER IF NOT EXISTS 'mhs_055'@'localhost'
+IDENTIFIED BY '<PASSWORD_MHS>';
+
+GRANT ALL PRIVILEGES ON kopma_055.* 
+TO 'mhs_055'@'localhost';
+
+CREATE DATABASE IF NOT EXISTS toko_055
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+CREATE USER IF NOT EXISTS 'dev_055'@'localhost'
+IDENTIFIED BY '<PASSWORD_DEV>';
+
+GRANT ALL PRIVILEGES ON toko_055.* 
+TO 'dev_055'@'localhost';
+
+SHOW GRANTS FOR 'mhs_055'@'localhost';
+SHOW GRANTS FOR 'dev_055'@'localhost';
